@@ -1,4 +1,5 @@
 # vuex-tutorial
+__Simple Todo list with use vuex library__
 
 ## Project setup
 ```
