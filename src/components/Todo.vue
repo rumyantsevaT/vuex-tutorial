@@ -1,6 +1,7 @@
 <template>
   <div>
     {{ todo.title }}
+    <button @click="deleteTodo">Удалить</button>
   </div>
 </template>
 
@@ -11,9 +12,11 @@
         type: Object,
       },
     },
+    methods: {
+      deleteTodo(){
+        this.$store.dispatch('deleteTodo', this.todo);
+      }
+    }
   }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
