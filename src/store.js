@@ -9,10 +9,12 @@ export default new Vuex.Store({
       {
         title: "Todo element 1",
         completed: false,
+        isRed: false,
       },
       {
         title: "Todo element 2",
         completed: false,
+        isRed: false,
       },
     ],
   },
@@ -34,6 +36,7 @@ export default new Vuex.Store({
 
     TOGGLE_TODO_STATUS(state, todoItem) {
       todoItem.completed = !todoItem.completed;
+      todoItem.isRed = !todoItem.isRed;
     }
   },
   actions: {

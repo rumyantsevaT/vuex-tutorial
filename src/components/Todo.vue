@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="block-todo">
-      <span :class="{completed: todo.completed}" @click="toggleTodoStatus">{{ todo.title }}</span>
+      <span :class="{completed: todo.completed, color: todo.isRed}" @click="toggleTodoStatus">{{ todo.title }}</span>
     <button class="btn button btn-danger" @click="deleteTodo">Удалить</button>
     </div>
   </div>
@@ -26,7 +26,7 @@
   }
 </script>
 
-<style lang="css" scoped>
+<style scoped>
   .block-todo {
     max-width: 500px;
     display: flex;
@@ -38,6 +38,9 @@
   }
   .completed {
     text-decoration: line-through;
+  }
+  .color {
+    color: red;
   }
 </style>
 
