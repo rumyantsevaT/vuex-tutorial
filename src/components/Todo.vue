@@ -1,13 +1,14 @@
 <template>
   <div>
     <div class="block-todo">
-      <span :class="{completed: todo.completed, color: todo.isRed}" @click="toggleTodoStatus">{{ todo.title }}</span>
-    <button class="btn button btn-danger" @click="deleteTodo">Удалить</button>
+      <span :class="{completed: todo.completed, color: todo.isRed}" @click="toggleTodoStatus(todo)">{{ todo.title }}</span>
+    <button class="btn button btn-danger" @click="deleteTodo(todo)">Удалить</button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
   export default {
     props: {
       todo: {
@@ -15,13 +16,17 @@
       },
     },
     methods: {
-      deleteTodo(){
-        this.$store.dispatch('deleteTodo', this.todo);
-      },
+      ...mapActions({
+        deleteTodo: 'deleteTodo',
+        toggleTodoStatus: 'toggleTodoStatus',
+      })
+      // deleteTodo(){
+      //   this.$store.dispatch('deleteTodo', this.todo);
+      // },
 
-      toggleTodoStatus() {
-        this.$store.dispatch('toggleTodoStatus', this.todo);
-      },
+      // toggleTodoStatus() {
+      //   this.$store.dispatch('toggleTodoStatus', this.todo);
+      // },
     },
   }
 </script>

@@ -7,12 +7,12 @@ export default new Vuex.Store({
   state: {
     todos: [
       {
-        title: "Todo element 1",
+        title: "Задача 1",
         completed: false,
         isRed: false,
       },
       {
-        title: "Todo element 2",
+        title: "Сделать задачу 2",
         completed: false,
         isRed: false,
       },

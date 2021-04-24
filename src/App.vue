@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Список дел:</h1>
-    <h4>Выполненных: {{ computedTodos }} </h4>
+    <h4>Выполненных: {{ completedTodos }} </h4>
     <h4>Предстоящих: {{ pendingTodos }} </h4>
     <br>
     <TodoList/>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import TodoList from './components/TodoLIst';
 import TodoForm from '@/components/TodoForm.vue';
 
@@ -21,12 +22,16 @@ export default {
     TodoForm,
   },
   computed: {
-    computedTodos() {
-      return this.$store.getters.completedTodos;
-    },
-    pendingTodos() {
-      return this.$store.getters.pendingTodos;
-    }
+    ...mapGetters({
+      completedTodos: 'completedTodos',
+      pendingTodos: 'pendingTodos',
+    })
+    // completedTodos() {
+    //   return this.$store.getters.completedTodos;
+    // },
+    // pendingTodos() {
+    //   return this.$store.getters.pendingTodos;
+    // }
   }
 }
 </script>
