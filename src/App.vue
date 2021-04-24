@@ -2,8 +2,8 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Список дел:</h1>
-    <h4>Выполненных:</h4>
-    <h4>Предстоящих:</h4>
+    <h4>Выполненных: {{ computedTodos }} </h4>
+    <h4>Предстоящих: {{ pendingTodos }} </h4>
     <br>
     <TodoList/>
     <TodoForm/>
@@ -19,6 +19,14 @@ export default {
   components: {
     TodoList,
     TodoForm,
+  },
+  computed: {
+    computedTodos() {
+      return this.$store.getters.completedTodos;
+    },
+    pendingTodos() {
+      return this.$store.getters.pendingTodos;
+    }
   }
 }
 </script>
